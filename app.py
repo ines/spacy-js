@@ -1,0 +1,117 @@
+# coding: utf8
+from __future__ import unicode_literals
+
+import hug
+from hug_middleware_cors import CORSMiddleware
+import spacy
+
+
+MODELS = {
+    'en_core_web_sm': spacy.load('en_core_web_sm')
+}
+
+
+def get_model_desc(nlp, model_name):
+    """Get human-readable model name, language name and version."""
+    lang_cls = spacy.util.get_lang_class(nlp.lang)
+    lang_name = lang_cls.__name__
+    model_version = nlp.meta['version']
+    return '{} - {} (v{})'.format(lang_name, model_name, model_version)
+
+
+def doc2json(doc, model):
+    json_doc = {
+        'text': doc.text,
+        'text_with_ws': doc.text_with_ws,
+        'cats': doc.cats,
+        'is_tagged': doc.is_tagged,
+        'is_parsed': doc.is_parsed,
+        'is_sentenced': doc.is_sentenced
+    }
+    ents = [{
+        'start': ent.start,
+        'end': ent.end,
+        'label': ent.label_
+    } for ent in doc.ents]
+    sents = [{
+        'start': sent.start,
+        'end': sent.end
+    } for sent in doc.sents]
+    noun_chunks = [{
+        'start': chunk.start,
+        'end': chunk.end
+    } for chunk in doc.noun_chunks]
+    tokens = [{
+        'text': token.text,
+        'text_with_ws': token.text_with_ws,
+        'whitespace': token.whitespace_,
+        'orth': token.orth,
+        'i': token.i,
+        'ent_type': token.ent_type_,
+        'ent_iob': token.ent_iob_,
+        'lemma': token.lemma_,
+        'norm': token.norm_,
+        'lower': token.lower_,
+        'shape': token.shape_,
+        'prefix': token.prefix_,
+        'suffix': token.suffix_,
+        'pos': token.pos_,
+        'tag': token.tag_,
+        'dep': token.dep_,
+        'lang': token.lang,
+        'is_alpha': token.is_alpha,
+        'is_ascii': token.is_ascii,
+        'is_digit': token.is_digit,
+        'is_lower': token.is_lower,
+        'is_upper': token.is_upper,
+        'is_title': token.is_title,
+        'is_punct': token.is_punct,
+        'is_left_punct': token.is_left_punct,
+        'is_right_punct': token.is_right_punct,
+        'is_space': token.is_space,
+        'is_bracket': token.is_bracket,
+        'is_currency': token.is_currency,
+        'like_url': token.like_url,
+        'like_num': token.like_num,
+        'like_email': token.like_email,
+        'is_oov': token.is_oov,
+        'is_stop': token.is_stop,
+        'is_sent_start': token.is_sent_start,
+        'head': token.head.i
+    } for token in doc]
+    return {
+        'model': model,
+        'doc': json_doc,
+        'ents': ents,
+        'sents': sents,
+        'noun_chunks': noun_chunks,
+        'tokens': tokens
+    }
+
+
+@hug.get('/models')
+def models():
+    return {name: get_model_desc(nlp, name) for name, nlp in MODELS.items()}
+
+
+@hug.post('/parse')
+def parse(model: str, text: str):
+    nlp = MODELS[model]
+    doc = nlp(text)
+    return doc2json(doc, model)
+
+
+@hug.post('/similarity')
+def similarity(model, text1, text2):
+    # We can always create Doc objects here, because the result is the same
+    nlp = MODELS[model]
+    doc1 = nlp(text1)
+    doc2 = nlp(text2)
+    return {'similarity': doc1.similarity(doc2)}
+
+
+if __name__ == '__main__':
+    import waitress
+    app = hug.API(__name__)
+    app.http.add_middleware(CORSMiddleware(app))
+    waitress.serve(__hug_wsgi__, port=8080)

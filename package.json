@@ -1,0 +1,19 @@
+{
+  "name": "spacy",
+  "version": "0.0.0",
+  "description": "spaCy JS",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup src/index.js --output.format cjs --output.file dist/index.js",
+    "dev": "rollup src/index.js --output.format cjs --output.file dist/index.js --watch"
+  },
+  "author": "Ines Montani",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.1.2"
+  },
+  "devDependencies": {
+    "rollup": "^0.66.6"
+  }
+}
