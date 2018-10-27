@@ -85,7 +85,7 @@ python api/server.py en_core_web_sm,de_core_news_sm
 ### `spacy.load`
 
 "Load" a spaCy model. This method mostly exists for consistency with the Python
-API. It mostly sets up the REST API and `nlp` object, but doesn't actually load
+API. It sets up the REST API and `nlp` object, but doesn't actually load
 anything, since the models are already available via the REST API.
 
 ```javascript
@@ -95,7 +95,7 @@ const nlp = spacy.load('en_core_web_sm');
 | Argument | Type | Description |
 | --- | --- | --- |
 | `model` | String | Name of model to load, e.g. `'en_core_web_sm'`. Needs to be available via the REST API. |
-| `api` | String | Alternative URL of REST API. Defaults to `http://localhost:8080`. |
+| `api` | String | Alternative URL of REST API. Defaults to `http://0.0.0.0:8080`. |
 | **RETURNS** | [`Language`](src/language.js) | The `nlp` object. |
 
 ### `nlp` <kbd>async</kbd>
