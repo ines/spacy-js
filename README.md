@@ -2,8 +2,13 @@
 
 # spaCy JS
 
+[![npm](https://img.shields.io/npm/v/spacy.svg?style=flat-square)](https://www.npmjs.com/package/spacy)
+[![GitHub](https://img.shields.io/github/release/ines/spacy-js/all.svg?style=flat-square)](https://github.com/ines/juniper)
+[![unpkg](https://img.shields.io/badge/unpkg-dist/index.js-brightgreen.svg?style=flat-square)](https://unpkg.com/spacy)
+
+
 JavaScript interface for accessing linguistic annotations provided by
-[spaCy](https://spacy.io). This project is mostly experimented and was
+[spaCy](https://spacy.io). This project is mostly experimental and was
 developed for fun to play around with different ways of mimicking spaCy's
 Python API.
 
@@ -35,6 +40,12 @@ You can install the JavaScript package via npm:
 
 ```bash
 npm install spacy
+```
+
+Alternatively, you can also include the `.js` file:
+
+```html
+<script src="https://unpkg.com/spacy@0.0.1/dist/index.js"></script>
 ```
 
 ### Setting up the Python server
