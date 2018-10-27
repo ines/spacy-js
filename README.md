@@ -51,19 +51,20 @@ Alternatively, you can also include the `.js` file:
 ### Setting up the Python server
 
 First, clone this repo and install the requirements. If you've installed the
-package via npm, you can also use the `app.py` and `requirements.txt` in your
-`./node_modules/spacy` directory. It's recommended to use a virtual environment.
+package via npm, you can also use the `api/server.py` and `requirements.txt` in
+your `./node_modules/spacy` directory. It's recommended to use a virtual
+environment.
 
 ```bash
 pip install -r requirements.txt
 ```
 
 If you like, you can install more [models](https://spacy.io/models) and add them
-to the list of models in `app.py`. You can then run the REST API. By default,
-this will serve the API via `localhost:8080`:
+to the list of models in [`api/server.py`](api/server.py). You can then run the
+REST API. By default, this will serve the API via `localhost:8080`:
 
 ```bash
-python app.py
+python api/server.py
 ```
 
 ## 🎛 API
@@ -107,7 +108,7 @@ async function() {
 Just like [in the original API](https://spacy.io/api/doc), the `Doc` object can
 be constructed with an array of `words` and `spaces`. It also takes an
 additional `attrs` object, which corresponds to the JSON-serialized linguistic
-annotations created in [`doc2json` in the `app.py`](app.py).
+annotations created in [`doc2json` in `api/server.py`](api/server.py).
 
 The `Doc` behaves just like the regular spaCy `Doc` – you can iterate over its
 tokens, index into individual tokens, access the `Doc` attributes and properties
@@ -129,7 +130,7 @@ console.log(doc.text) // 'Hello world!'
 | --- | --- | --- |
 | `words` | Array | The individual token texts. |
 | `spaces` | Array | Whether the token at this position is followed by a space or not. |
-| `attrs` | Object | JSON-serialized attributes, see [`doc2json`](app.py). |
+| `attrs` | Object | JSON-serialized attributes, see [`doc2json`](api/server.py). |
 | **RETURNS** | [`Doc`](src/tokens.js) | The newly constructed `Doc`. |
 
 #### Symbol iterator and token indexing
