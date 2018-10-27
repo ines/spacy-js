@@ -1,6 +1,6 @@
 {
   "name": "spacy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JavaScript API for spaCy with Python REST API",
   "main": "dist/index.js",
   "scripts": {
