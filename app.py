@@ -11,14 +11,6 @@ MODELS = {
 }
 
 
-def get_model_desc(nlp, model_name):
-    """Get human-readable model name, language name and version."""
-    lang_cls = spacy.util.get_lang_class(nlp.lang)
-    lang_name = lang_cls.__name__
-    model_version = nlp.meta['version']
-    return '{} - {} (v{})'.format(lang_name, model_name, model_version)
-
-
 def doc2json(doc, model):
     json_doc = {
         'text': doc.text,
@@ -87,11 +79,6 @@ def doc2json(doc, model):
         'noun_chunks': noun_chunks,
         'tokens': tokens
     }
-
-
-@hug.get('/models')
-def models():
-    return {name: get_model_desc(nlp, name) for name, nlp in MODELS.items()}
 
 
 @hug.post('/parse')
