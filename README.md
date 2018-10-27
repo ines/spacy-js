@@ -59,13 +59,26 @@ environment.
 pip install -r requirements.txt
 ```
 
-If you like, you can install more [models](https://spacy.io/models) and add them
-to the list of models in [`api/server.py`](api/server.py). You can then run the
-REST API. By default, this will serve the API via `localhost:8080`:
+You can then run the REST API. By default, this will serve the API via
+`0.0.0.0:8080`:
 
 ```bash
 python api/server.py
 ```
+
+If you like, you can install more [models](https://spacy.io/models) and specify
+a comma-separated list of models to load as the first argument when you run
+the server. All models need to be installed in the same environment.
+
+```bash
+python api/server.py en_core_web_sm,de_core_news_sm
+```
+
+| Argument | Type | Description | Default |
+| --- | --- | --- | --- |
+| `models` | positional (str) | Comma-separated list of models to load and make available. | `en_core_web_sm` |
+| `--host`, `-ho` | option (str) | Host to serve the API. | `0.0.0.0` |
+| `--port`, `-p` | option (int) | Port to server the API. | `8080` |
 
 ## 🎛 API
 

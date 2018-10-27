@@ -3,12 +3,32 @@ from __future__ import unicode_literals
 
 import hug
 from hug_middleware_cors import CORSMiddleware
+import waitress
 import spacy
+import plac
 
 
-MODELS = {
-    'en_core_web_sm': spacy.load('en_core_web_sm')
-}
+MODELS = {}
+
+
+@plac.annotations(
+    models=("Comma-separated list of spaCy models", "positional", None, str),
+    host=("Host to serve API", "option", "ho", str),
+    port=("Port to serve API", "option", "p", int)
+)
+def main(models=None, host='0.0.0.0', port=8080):
+    if not models:
+        models = ['en_core_web_sm']
+    else:
+        models = [m.strip() for m in models.split(',')]
+    for model in models:
+        print("Loading model '{}'...".format(model))
+        MODELS[model] = spacy.load(model)
+    # Serving Hug API
+    app = hug.API(__name__)
+    app.http.add_middleware(CORSMiddleware(app))
+    waitress.serve(__hug_wsgi__, port=port)
+
 
 
 def doc2json(doc: spacy.tokens.Doc, model: str):
@@ -98,7 +118,4 @@ def similarity(model: str, text1: str, text2: str):
 
 
 if __name__ == '__main__':
-    import waitress
-    app = hug.API(__name__)
-    app.http.add_middleware(CORSMiddleware(app))
-    waitress.serve(__hug_wsgi__, port=8080)
+    plac.call(main)
