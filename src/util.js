@@ -11,7 +11,7 @@ export async function makeRequest(api, endpoint, opts, method = 'POST') {
         return await res.json();
     }
     catch(err) {
-        console.log('ERROR!')
+        console.log(`Error fetching data from API: ${api}`)
     }
 }
 

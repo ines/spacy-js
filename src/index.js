@@ -1,7 +1,7 @@
 import Language from './language'
 
 export default {
-    load: function(model) {
-        return new Language(model);
+    load: function(model, api) {
+        return new Language(model, api);
     }
 }
