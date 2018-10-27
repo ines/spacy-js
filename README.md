@@ -13,7 +13,7 @@ a few exceptions, as the values are all pre-computed and it's tricky to express
 complex recursive relationships).
 
 ```javascript
-import spacy from 'spacy';
+const spacy = require('spacy');
 
 (async function() {
     const nlp = spacy.load('en_core_web_sm');
@@ -27,11 +27,13 @@ import spacy from 'spacy';
 })();
 ```
 
-## Installation
+## ⌛️ Installation
 
 ### Setting up the Python server
 
-First, clone this repo and install the requirements. It's recommended to
+First, clone this repo and install the requirements. If you'v
+
+It's recommended to
 use a virtual environment.
 
 ```bash
@@ -61,7 +63,7 @@ Alternatively, you can also include the `.js` file:
 <script src=""></script>
 ```
 
-## API
+## 🎛 API
 
 ### `spacy.load`
 
@@ -254,3 +256,7 @@ async function() {
 | `isOov` | Boolean | Is the token out-of-vocabulary? |
 | `isStop` | Boolean | Is the token a stop word? |
 | `isSentStart` | Boolean | Does the token start a sentence? |
+
+## ✅ Ideas and Todos
+
+- [ ] Experiment with NodeJS bindings to make Python integration easier. To be fair, running a separate API in an environment controlled by the user and *not* hiding it a few levels deep is often much easier. But maybe there are some modern Node tricks that this project could benefit from.
