@@ -11,7 +11,7 @@ MODELS = {
 }
 
 
-def doc2json(doc, model):
+def doc2json(doc: spacy.tokens.Doc, model: str):
     json_doc = {
         'text': doc.text,
         'text_with_ws': doc.text_with_ws,
@@ -89,7 +89,7 @@ def parse(model: str, text: str):
 
 
 @hug.post('/similarity')
-def similarity(model, text1, text2):
+def similarity(model: str, text1: str, text2: str):
     # We can always create Doc objects here, because the result is the same
     nlp = MODELS[model]
     doc1 = nlp(text1)
