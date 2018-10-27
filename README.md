@@ -29,10 +29,19 @@ const spacy = require('spacy');
 
 ## ⌛️ Installation
 
+### Installing the JavaScript library
+
+You can install the JavaScript package via npm:
+
+```bash
+npm install spacy
+```
+
 ### Setting up the Python server
 
-First, clone this repo and install the requirements. It's recommended to
-use a virtual environment.
+First, clone this repo and install the requirements. If you've installed the
+package via npm, you can also use the `app.py` and `requirements.txt` in your
+`./node_modules/spacy` directory. It's recommended to use a virtual environment.
 
 ```bash
 pip install -r requirements.txt
@@ -44,20 +53,6 @@ this will serve the API via `localhost:8080`:
 
 ```bash
 python app.py
-```
-
-### Installing the JavaScript library
-
-You can install the JavaScript wrapper via npm:
-
-```bash
-npm install spacy
-```
-
-Alternatively, you can also include the `.js` file:
-
-```html
-<script src=""></script>
 ```
 
 ## 🎛 API
