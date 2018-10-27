@@ -14,6 +14,6 @@ export default class Language {
         const json = await makeRequest(api, 'parse', { model, text })
         const words = json.tokens.map(({ text }) => text);
         const spaces = json.tokens.map(({ whitespace }) => Boolean(whitespace));
-        return { words, spaces, attrs: { ...json, api }}
+        return { words, spaces, attrs: Object.assign({}, json, { api }) }
     }
 }
