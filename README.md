@@ -45,7 +45,7 @@ npm install spacy
 Alternatively, you can also include the `.js` file:
 
 ```html
-<script src="https://unpkg.com/spacy@0.0.1/dist/index.js"></script>
+<script src="https://unpkg.com/spacy"></script>
 ```
 
 ### Setting up the Python server
