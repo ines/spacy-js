@@ -1,7 +1,7 @@
 {
   "name": "spacy",
   "version": "0.0.1",
-  "description": "spaCy JS",
+  "description": "JavaScript API for spaCy with Python REST API",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +10,18 @@
   },
   "author": "Ines Montani",
   "license": "MIT",
+  "homepage": "https://github.com/ines/spacy-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ines/spacy-js.git"
+  },
+  "keywords": [
+    "spacy",
+    "nlp",
+    "natural language processing",
+    "machine learning",
+    "artificial intelligence"
+  ],
   "dependencies": {
     "node-fetch": "^2.1.2"
   },
