@@ -3,7 +3,6 @@
 # spaCy JS
 
 [![npm](https://img.shields.io/npm/v/spacy.svg?style=flat-square)](https://www.npmjs.com/package/spacy)
-[![GitHub](https://img.shields.io/github/release/ines/spacy-js/all.svg?style=flat-square)](https://github.com/ines/juniper)
 [![unpkg](https://img.shields.io/badge/unpkg-dist/index.js-brightgreen.svg?style=flat-square)](https://unpkg.com/spacy)
 
 
