@@ -31,13 +31,10 @@ const spacy = require('spacy');
 
 ### Setting up the Python server
 
-First, clone this repo and install the requirements. If you'v
-
-It's recommended to
+First, clone this repo and install the requirements. It's recommended to
 use a virtual environment.
 
 ```bash
-# Install the requirements
 pip install -r requirements.txt
 ```
 
