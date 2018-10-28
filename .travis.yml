@@ -4,6 +4,7 @@ matrix:
     python: 3.6
     before_script:
       - pip install pytest
+    install:
       - pip install -r requirements.txt
     script:
       - python -m pytest tests
@@ -16,3 +17,5 @@ matrix:
     script:
       - npm run test
     cache: npm
+notifications:
+  email: false
