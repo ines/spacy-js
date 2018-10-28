@@ -268,7 +268,32 @@ async function() {
 | `isStop` | Boolean | Is the token a stop word? |
 | `isSentStart` | Boolean | Does the token start a sentence? |
 
+## 🔔 Run Tests
+
+### Python
+
+First, make sure you have `pytest` and all dependencies installed. You can then
+run the tests by pointing `pytest` to [`/tests`](/tests):
+
+```bash
+python -m pytest tests
+```
+
+### JavaScript
+
+This project uses [Jest](https://jestjs.io) for testing. Make sure you have
+all dependencies and development dependencies installed. You can then run:
+
+```bash
+npm run test
+```
+
+To allow testing the code without a REST API providing the data, the test suite
+currently uses a [mock of the `Language` class](src/__mocks__), which returns
+static data located in [`tests/util.js`](tests/util.js).
+
 ## ✅ Ideas and Todos
 
+- [ ] Add Travis CI integration.
 - [ ] Improve JavaScript tests.
 - [ ] Experiment with NodeJS bindings to make Python integration easier. To be fair, running a separate API in an environment controlled by the user and *not* hiding it a few levels deep is often much easier. But maybe there are some modern Node tricks that this project could benefit from.
