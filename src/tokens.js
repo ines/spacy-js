@@ -81,7 +81,7 @@ export class Span {
         this.doc = doc;
         this.start = start;
         this.end = end;
-        this.label = label;
+        this._label = label;
         this.tokens = [...this.doc].slice(this.start, this.end);
         for (let i = 0; i < this.tokens.length; i++) {
             this[i] = this.tokens[0];
@@ -98,6 +98,18 @@ export class Span {
 
     get length() {
         return this.tokens.length;
+    }
+
+    get label() {
+        if (this._label) {
+            return this._label;
+        }
+        // Manually check if span is an entity
+        for (let ent of this.doc.ents) {
+            if (ent.start === this.start && ent.end == this.end) {
+                return ent.label;
+            }
+        }
     }
 
     *[Symbol.iterator]() {
