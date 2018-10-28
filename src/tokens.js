@@ -93,7 +93,7 @@ export class Span {
         for (let token of this.tokens) {
             text += token.textWithWs;
         }
-        return text;
+        return text.trim();
     }
 
     get length() {
