@@ -178,6 +178,10 @@ export class Token {
         this._head = attrs.head;
     }
 
+    get length() {
+        return this.text.length;
+    }
+
     get head() {
         return this.doc[this._head];
     }
