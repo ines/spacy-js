@@ -6,7 +6,7 @@ export class Doc {
         this._tokens = attrs.tokens || [];
         this._ents = attrs.ents || [];
         this._sents = attrs.sents || [];
-        this._chunks = attrs.chunks || [];
+        this._chunks = attrs.noun_chunks || [];
         this._model = attrs.model;
         this._api = attrs.api;
         this.tokens = words.map((word, i) => new Token(this, word, spaces[i], this._tokens[i]))
