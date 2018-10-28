@@ -125,7 +125,7 @@ real way to make Python's slice notation like `doc[2:4]` work).
 #### Construction
 
 ```javascript
-import { Doc } from 'spacy/tokens';
+import { Doc } from 'spacy';
 
 const words = ['Hello', 'world', '!'];
 const spaces = [true, false, false];
@@ -182,7 +182,7 @@ from a `Doc`, a start and end index and an optional label, or by slicing a `Doc`
 #### Construction
 
 ```javascript
-import { Doc, Span } from 'spacy/tokens';
+import { Doc, Span } from 'spacy';
 
 const doc = Doc(['Hello', 'world', '!'], [true, false, false]);
 const span = Span(doc, 1, 3);
