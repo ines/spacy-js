@@ -30,6 +30,13 @@ test('has Span attributes', async () => {
     expect(span.label).toBeUndefined();
 });
 
+test('has parent Doc', async() => {
+    const doc = await nlp(text);
+    const span = doc.slice(6, 9);
+    expect(span.doc).toBeInstanceOf(Doc);
+    expect(span.doc).toBe(doc);
+});
+
 test('has entity label', async () => {
     const doc = await nlp(text);
     const span = doc.slice(8, 9);
