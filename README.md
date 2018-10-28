@@ -42,12 +42,6 @@ You can install the JavaScript package via npm:
 npm install spacy
 ```
 
-Alternatively, you can also include the `.js` file:
-
-```html
-<script src="https://unpkg.com/spacy"></script>
-```
-
 ### Setting up the Python server
 
 First, clone this repo and install the requirements. If you've installed the
