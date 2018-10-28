@@ -270,5 +270,5 @@ async function() {
 
 ## ✅ Ideas and Todos
 
-- [ ] Add JavaScript tests.
+- [ ] Improve JavaScript tests.
 - [ ] Experiment with NodeJS bindings to make Python integration easier. To be fair, running a separate API in an environment controlled by the user and *not* hiding it a few levels deep is often much easier. But maybe there are some modern Node tricks that this project could benefit from.
