@@ -2,6 +2,7 @@
 
 # spaCy JS
 
+[![travis](https://img.shields.io/travis/ines/spacy-js/master.svg?style=flat-square&logo=travis)](https://travis-ci.org/ines/spacy-js)
 [![npm](https://img.shields.io/npm/v/spacy.svg?style=flat-square)](https://www.npmjs.com/package/spacy)
 [![GitHub](https://img.shields.io/github/release/ines/spacy-js/all.svg?style=flat-square)](https://github.com/ines/spacy-js)
 [![unpkg](https://img.shields.io/badge/unpkg-dist/index.js-brightgreen.svg?style=flat-square)](https://unpkg.com/spacy)
