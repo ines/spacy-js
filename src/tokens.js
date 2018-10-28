@@ -156,7 +156,6 @@ export class Token {
         this.pos = attrs.pos;
         this.tag = attrs.tag;
         this.dep = attrs.dep;
-        this.lang = attrs.lang;
         this.isAlpha = attrs.is_alpha;
         this.isAscii = attrs.is_ascii;
         this.isDigit = attrs.is_digit;

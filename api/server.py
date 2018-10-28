@@ -70,7 +70,6 @@ def doc2json(doc: spacy.tokens.Doc, model: str):
         'pos': token.pos_,
         'tag': token.tag_,
         'dep': token.dep_,
-        'lang': token.lang,
         'is_alpha': token.is_alpha,
         'is_ascii': token.is_ascii,
         'is_digit': token.is_digit,
