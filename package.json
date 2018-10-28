@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "build": "parcel build src/index.js --target node --no-source-maps",
-    "dev": "parcel src/index.js --target node --no-source-maps",
+    "build": "parcel build src/index.js --target node --no-source-maps --global spacy",
+    "dev": "parcel src/index.js --target node --no-source-maps --global spacy",
     "package": "npm run build && npm pack"
   },
   "author": "Ines Montani",
