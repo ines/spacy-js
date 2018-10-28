@@ -1,0 +1,17 @@
+matrix:
+  include:
+  - language: python
+    python: 3.6
+    before_script:
+      - pip install pytest
+    script:
+      - python -m pytest tests
+    cache: pip
+  - language: node_js
+    node_js:
+      - "8"
+    install:
+      - npm install
+    script:
+      - npm run test
+    cache: npm
