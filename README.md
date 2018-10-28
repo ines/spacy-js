@@ -235,6 +235,7 @@ async function() {
 | `text` | String | The token text. |
 | `whitespace` | String | Whitespace character following the token, if available. |
 | `textWithWs` | String | Token text with training whitespace. |
+| `length` | Number | The length of the token text. |
 | `orth` | Number | ID of the token text. |
 | `doc` | `Doc` | The parent `Doc`. |
 | `head` | `Token` | The syntactic parent, or "governor", of this token. |
