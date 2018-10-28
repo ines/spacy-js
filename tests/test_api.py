@@ -5,7 +5,7 @@ import pytest
 import spacy
 import json
 
-from api.server import parse, doc2json
+from api.server import parse, doc2json, load_model
 
 
 @pytest.fixture(scope='session')
@@ -29,6 +29,7 @@ def doc(nlp, text):
 
 
 def test_server_parse(model, text, doc):
+    load_model(model)
     json_doc = parse(model, text)
     direct_json_doc = doc2json(doc, model)
     assert json.dumps(json_doc, sort_keys=True) == json.dumps(direct_json_doc, sort_keys=True)

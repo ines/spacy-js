@@ -22,13 +22,16 @@ def main(models=None, host='0.0.0.0', port=8080):
     else:
         models = [m.strip() for m in models.split(',')]
     for model in models:
-        print("Loading model '{}'...".format(model))
-        MODELS[model] = spacy.load(model)
+        load_model(model)
     # Serving Hug API
     app = hug.API(__name__)
     app.http.add_middleware(CORSMiddleware(app))
     waitress.serve(__hug_wsgi__, port=port)
 
+
+def load_model(model):
+    print("Loading model '{}'...".format(model))
+    MODELS[model] = spacy.load(model)
 
 
 def doc2json(doc: spacy.tokens.Doc, model: str):
