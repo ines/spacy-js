@@ -109,7 +109,7 @@ async function() {
 | Argument | Type | Description |
 | --- | --- | --- |
 | `text` | String | The text to process. |
-| **RETURNS** | [`Doc`](src/doc.js) | The processed `Doc`. |
+| **RETURNS** | [`Doc`](src/tokens.js) | The processed `Doc`. |
 
 ### `Doc`
 
