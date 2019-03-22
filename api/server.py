@@ -47,10 +47,16 @@ def doc2json(doc: spacy.tokens.Doc, model: str):
     ents = [
         {"start": ent.start, "end": ent.end, "label": ent.label_} for ent in doc.ents
     ]
-    sents = [{"start": sent.start, "end": sent.end} for sent in doc.sents]
-    noun_chunks = [
-        {"start": chunk.start, "end": chunk.end} for chunk in doc.noun_chunks
-    ]
+    if doc.is_sentenced:
+        sents = [{"start": sent.start, "end": sent.end} for sent in doc.sents]
+    else:
+        sents = []
+    if doc.is_tagged and doc.is_parsed:
+        noun_chunks = [
+            {"start": chunk.start, "end": chunk.end} for chunk in doc.noun_chunks
+        ]
+    else:
+        noun_chunks = []
     tokens = [
         {
             "text": token.text,
