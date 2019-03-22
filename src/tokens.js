@@ -16,6 +16,7 @@ export class Doc {
         this.cats = this._doc.cats
         this.isTagged = this._doc.is_tagged
         this.isParsed = this._doc.is_parsed
+        this.isNered = this._doc.is_nered
         this.isSentenced = this._doc.is_sentenced
     }
 
