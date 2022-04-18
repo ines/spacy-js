@@ -22,7 +22,7 @@ complex recursive relationships).
 const spacy = require('spacy');
 
 (async function() {
-    const nlp = spacy.load('en_core_web_sm');
+    const nlp = spacy.default.load('en_core_web_sm');
     const doc = await nlp('This is a text about Facebook.');
     for (let ent of doc.ents) {
         console.log(ent.text, ent.label);
@@ -77,14 +77,14 @@ python api/server.py en_core_web_sm,de_core_news_sm
 
 ## 🎛 API
 
-### `spacy.load`
+### `spacy.default.load`
 
 "Load" a spaCy model. This method mostly exists for consistency with the Python
 API. It sets up the REST API and `nlp` object, but doesn't actually load
 anything, since the models are already available via the REST API.
 
 ```javascript
-const nlp = spacy.load('en_core_web_sm');
+const nlp = spacy.default.load('en_core_web_sm');
 ```
 
 | Argument | Type | Description |
@@ -101,7 +101,7 @@ call in an `async` function and use `await`:
 
 ```javascript
 async function() {
-    const nlp = spacy.load('en_core_web_sm');
+    const nlp = spacy.default.load('en_core_web_sm');
     const doc = await nlp('This is a text.');
 }
 ```
@@ -145,7 +145,7 @@ console.log(doc.text) // 'Hello world!'
 
 ```javascript
 async function() {
-    const nlp = spacy.load('en_core_web_sm');
+    const nlp = spacy.default.load('en_core_web_sm');
     const doc = await nlp('Hello world');
 
     for (let token of doc) {
@@ -218,7 +218,7 @@ For token attributes that exist as string and ID versions (e.g. `Token.pos` vs.
 
 ```javascript
 async function() {
-    const nlp = spacy.load('en_core_web_sm');
+    const nlp = spacy.default.load('en_core_web_sm');
     const doc = await nlp('Hello world');
 
     for (let token of doc) {
