@@ -24,6 +24,7 @@
     "artificial intelligence"
   ],
   "dependencies": {
+    "deasync": "^0.1.28",
     "node-fetch": "^2.1.2"
   },
   "devDependencies": {
